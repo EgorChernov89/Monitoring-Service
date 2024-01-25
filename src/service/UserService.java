@@ -1,5 +1,6 @@
 package service;
 
+import model.MeterReading;
 import model.User;
 
 import java.util.HashMap;
@@ -23,6 +24,18 @@ public class UserService {
             System.out.println("Авторизация прошла успешно!");
         }else {
             System.out.println("Ошибка авторизации. Пожалуйста попробуйте снова");
+        }
+    }
+    //Подача показаний
+    static void submitReading(String username, int month, int year,Map<String, Double> meterValues){
+        User user = loggedInUsers.get(username);
+        if (user != null){
+            MeterReading reading = new MeterReading(month,year);
+            reading.getMeterValues().putAll(meterValues);
+            user.getReadings().add(reading);
+            System.out.println("Данные добавлены успешно");
+        }else {
+            System.out.println("Вы не авторизованы");
         }
     }
 

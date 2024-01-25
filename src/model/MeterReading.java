@@ -8,7 +8,7 @@ public class MeterReading {
     private int year;
     private Map<String,Double> meterValues;
 
-    public MeterReading(int month, int year, Map<String, Double> meterValues) {
+    public MeterReading(int month, int year) {
         this.month = month;
         this.year = year;
         this.meterValues = new HashMap<>();
